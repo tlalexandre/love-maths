@@ -39,7 +39,9 @@ function checkAnswer() {
   let isCorrect = userAnswer === calculateAnswer[0];
   if (isCorrect) {
     alert("Correct! You got it right!");
+    incrementScore();
   } else {
+    incrementWrongAnswer();
     alert(
       "Wrong! You answer was " +
         userAnswer +
@@ -69,9 +71,20 @@ function calculateCorrectAnswer() {
     throw `Unimplemented operator: ${operator} Aborting!`;
   }
 }
-
-function incrementScore() {}
-function incrementWrongAnswer() {}
+/**
+ * Gets the current score and increments it by 1
+ */
+function incrementScore() {
+  let oldScore = parseInt(document.getElementById("score").innerText);
+  document.getElementById("score").innerText = ++oldScore;
+}
+/**
+ * Gets the current wrong answer and increments it by 1
+ */
+function incrementWrongAnswer() {
+  let oldScore = parseInt(document.getElementById("incorrect").innerText);
+  document.getElementById("incorrect").innerText = ++oldScore;
+}
 function displayAdditionQuestion(operand1, operand2) {
   document.getElementById("operand1").textContent = operand1;
   document.getElementById("operand2").textContent = operand2;
