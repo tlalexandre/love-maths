@@ -30,6 +30,7 @@ function runGame(gameType) {
   } else if (gameType === "multiply") {
     displayMultiplyQuestion(num1, num2);
   } else if (gameType === "division") {
+    num1 = num1 * num2;
     displayDivideQuestion(num1, num2);
   } else {
     alert(`Unknown game type:${gameType} `);
